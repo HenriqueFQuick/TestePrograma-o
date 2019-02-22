@@ -12,20 +12,20 @@ public class TesteTecnico{
          decode();
       }catch(Exception e){
          e.printStackTrace();
-      }
+      }//end try/catch
    }//end main
 
    public static void encode() throws Exception{
       organizadorEncode("encode-2.in","encode-2.out");
       organizadorEncode("encode-3.in","encode-3.out");
       organizadorEncode("encode-4.in","encode-4.out");
-   }  
+   }//end encode  
    
    public static void decode()throws Exception{
       organizadorDecode("decode-5.in", "decode-5.out");
       organizadorDecode("decode-6.in", "decode-6.out");
       organizadorDecode("decode-7.in", "decode-7.out");
-   }
+   }//end decode
 
 
    //metodo para conseguir resolver o problema para cada arquivo decode(mandado como parametro)
@@ -35,7 +35,7 @@ public class TesteTecnico{
             str = ler2(nome_leitura);                                       //ler a string de um arquivo(decode-6)
          }else{ 
             str  = ler(nome_leitura);                                       //ler a string de um arquivo
-         }                                                                    
+         }//end else                                                                    
          int pos               = lerPos(nome_leitura);                       //ler o valor int do mesmo arquivo
          String[] vetorString  = new String[str.length()];                   //declarar um vetor de strings
          vetorString           = preencher(vetorString, str.length());       //preencher a matriz com ""
@@ -62,7 +62,7 @@ public class TesteTecnico{
       int tamString = (int)raf.length()-8;                                     //tamanho da palavra = tamanho total - caracteres extras
       for(byte i = 0; i < tamString; i++){
          str += (char)raf.read();                                              //ler caracter a caracter do arquivo e colocar em uma string
-      }
+      }//end for
       raf.close();                                                             //fechar o arquivo
       return str;                                                              //retornar a nova string
    }//end ler
@@ -76,7 +76,7 @@ public class TesteTecnico{
       int tamString = (int)raf.length()-7;
       for(byte i = 0; i < tamString; i++){
          str += (char)raf.read();
-      }
+      }//end for
       raf.close();
       return str;
    }//end ler
@@ -130,7 +130,7 @@ public class TesteTecnico{
             for(byte j = 0; j < tamanho; j++){               
                   matrizChar[i][j] = str.charAt(temp);
                   temp = (temp + 1) % tamanho;
-            }
+            }//end for
             temp = (temp + (tamanho-1)) % tamanho;
          }//end for 
          return TranformaMatriz(matrizChar, tamanho, new String[tamanho]);
@@ -197,7 +197,7 @@ public class TesteTecnico{
    public static String[] preencher(String[] vetorString, int tamanho){
       for(byte i = 0; i < tamanho; i++){
          vetorString[i] = "";
-      }
+      }//end for
    return vetorString;                                                       //retorna a nova matriz
    }//end preencher
 
@@ -207,9 +207,9 @@ public class TesteTecnico{
       for(byte j = 0; j < tamanho; j++){
          for(byte i = 0; i < tamanho; i++){
             vetorString[i] = str.charAt(i) + vetorString[i];                  //escrevendo os caracteres na amtriz
-         }
+         }//end for
          vetorString = selectionSort(vetorString, tamanho);                   //ordenando a matriz em ordem alfabetica apos a insercao de todos os elementos em uma "coluna"
-      }   
+      }//end for   
    return vetorString;                                                        //retorna a nova matriz
    }//end cria
    
